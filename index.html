@@ -7,17 +7,41 @@
     <title>Baseline Results</title>
 </head>
 <body>
-    <h1>Results</h1><br>
-    <div id="images"></div>
+    <link rel="stylesheet" href="style.css">
+    <div id="Inpaint" style="text-align: center;">
+        <h1>Inpainting Results</h1><br>
+        <h2>Original &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Mask &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Deep Fill &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Deep Priors</h2>
+    </div>
     <script>
-        for(let i=1;i<19;i++){
-            var img = document.createElement("img");
-            img.src = "./Figure_"+i+".png";
-            img.height=750;
-            img.width=750;
-            document.getElementById("images").appendChild(img);
-            console.log("./Figure_"+i+".png");
+        for(let i = 0;i<20;i++){
+            for(let j=0;j<5;j++){
+                var img2 = document.createElement("img");
+                img2.src = "./Inpaint_Images/Originals/orig_"+i+".png";
+                img2.height=256;
+                img2.width=256;
+                document.getElementById("Inpaint").appendChild(img2);
+                var img3 = document.createElement("img");
+                img3.src = "./Inpaint_Images/DeepPriors_Masks/mask_"+i+"_"+j+".png";
+                img3.height=256;
+                img3.width=256;
+                document.getElementById("Inpaint").appendChild(img3);
+                var img = document.createElement("img");
+                img.src = "./Inpaint_Images/DeepFill_Results/result_"+i+"_"+j+".png";
+                img.height=256;
+                img.width=256;
+                document.getElementById("Inpaint").appendChild(img);
+                var img1 = document.createElement("img");
+                img1.src = "./Inpaint_Images/DeepPriors_Results/result_"+i+"_"+j+".png";
+                img1.height=256;
+                img1.width=256;
+                document.getElementById("Inpaint").appendChild(img1);
+                var b = document.createElement("hr");
+                document.getElementById("Inpaint").appendChild(b);
+            }
         }
+        console.log("Inpaint");
     </script>
+    <hr color="blue">
+
 </body>
 </html>
